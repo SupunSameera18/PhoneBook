@@ -1,0 +1,75 @@
+<%- include ('./layouts/header.ejs')%>
+
+    <div class="title">
+        <h1>Welcome to Phonebook</h1>
+    </div>
+
+    <% if(message) {%>
+        <% if(message) %>
+        <div class="alert <%= alertType %> d-flex align-items-center alert-dismissible fade show" role="alert">
+            <iconify-icon icon="ep:success-filled" width="20" class="me-3"></iconify-icon>
+            <div>
+                <%= message %>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+            <% if(users.length !==0) { %>
+                <div class="table">
+                    <table id="user-table" class="table table-striped">
+                        <thead class="bg-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Telephone</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <p>
+                                <% users %>
+                            </p>
+                            <% let i=1; %>
+                                <% users.map((user)=> { %>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= i %>
+                                        </th>
+                                        <td>
+                                            <%= user.name %>
+                                        </td>
+                                        <td>
+                                            <%= user.telephone %>
+                                        </td>
+                                        <td>
+                                            <%= user.email %>
+                                        </td>
+                                        <td class="action">
+                                            <a href="/edit/<%= user._id %>" class="edit" title="Edit"><iconify-icon icon="lucide:edit"
+                                                    width="18"></iconify-icon></a>
+                                            <a href="/delete/<%= user._id %>" class="delete" title="Delete"><iconify-icon
+                                                    icon="ic:round-delete" width="20"></iconify-icon></a>
+                                        </td>
+                                    </tr>
+                                    <% i++ %>
+                                        <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+                <% } else { %>
+                    <div class="p-5 mt-5 bg-light border rounded-3">
+                        <div class="container-fluid">
+                            <h2 class="fw-bold">No users to display</h2>
+                            <p class="fs-6">Please add users to display information about them. You can click the 'Add
+                                User' button below or navigate using top navigation bar.
+                                <br>
+                                Thank you!
+                            </p>
+                            <a class="btn btn-primary" href="/add">Add User</a>
+                        </div>
+                    </div>
+                    <% } %>
+
+
+                        <%- include ('./layouts/footer.ejs')%>

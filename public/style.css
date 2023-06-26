@@ -1,0 +1,65 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar .navbar-brand p {
+    margin: 0 0 0 10px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.navbar ul>li {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.content {
+    margin-top: 100px;
+}
+
+.table {
+    margin-top: 30px;
+}
+
+.table thead{
+    color: #fff;
+}
+
+table {
+    border: 1px solid #212529;
+}
+
+.table .action .edit {
+    color: green;
+    margin-right: 20px;
+}
+
+.table .action .edit:hover {
+    color: #005d00;
+}
+
+.table .action .delete {
+    color: red;
+}
+
+.table .action .delete:hover {
+    color: #c70202;
+}
+
+.form-wrapper {
+    width: 600px;
+    margin: auto;
+    border: 1px solid #212529;
+}
+
+.form-wrapper .title {
+    color: #fff;
+}
+
+.form-wrapper .form {
+    padding: 0 25px;
+}
+
+.form-wrapper button {
+    margin: auto;
+}
